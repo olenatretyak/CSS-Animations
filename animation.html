@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animation</title>
+
+<style type="text/css">
+
+	body {
+		background-color: black;
+	}
+
+	.black_box {
+		width: 1200px;
+		margin: 0 auto;
+		position: absolute;
+	}	
+
+	.rigth {
+		float: left;
+	}
+
+	.left {
+		float: right;
+	}
+
+	li {
+	  width: 120px;
+	  height: 120px;
+	  background: linear-gradient(red, silver, blue);
+	  border-radius: 50%; 
+	  animation: rotating 0.5s infinite, my-bg_1 0.5s infinite;
+	  animation-direction: alternate-reverse;
+	  box-shadow: 2px 2px 3px rgba(0,0,0,.4);
+	}
+
+	li:nth-child(even) {
+	  animation: rotating 1s infinite, my-bg_2 1s infinite, run 2s infinite ease-in-out;
+	  animation-direction: alternate-reverse;
+	}
+
+	.left li:nth-child(even) {
+	   animation: rotating 0.5s infinite, my-bg_2 0.5s infinite, run_2 2s infinite ease-in-out;
+	   animation-direction: alternate-reverse;
+	   box-shadow: 2px 2px 3px rgba(0,0,0,.4);
+	}
+
+	@keyframes rotating {
+	   0% { transform: rotate(0); }
+	   100% { transform: rotate(360deg); }
+	}
+
+	@keyframes my-bg_1 {
+		0% { background: linear-gradient(red, silver, blue); }
+		50% { background: linear-gradient(blue, silver, yellow); }
+		70% { background: linear-gradient (yellow, silver, gren); }
+		85% { background: linear-gradient (red, silver, purple); }
+		100% { background: linear-gradient (purple, silver, red); }
+	}
+
+	@keyframes my-bg_2 {
+		0% { background: linear-gradient(green, silver, purple); }
+	    50% { background: linear-gradient(purple, silver, red); }
+	    70% { background: linear-gradient (red, silver, blue); }
+	  	85% { background: linear-gradient (blue, silver, pink); }
+	  	100% { background: linear-gradient (pink, silver, green); }
+	}
+
+	@keyframes run {
+		  	0% {
+		    transform: translate(0%);
+		    border-radius: 50%;
+		}
+		  	25% {
+		    transform: translate(600%) scale(0.5); 
+		    border-radius: 0%;
+		}
+		  	50% {
+		    transform: translate(600%, 150%);
+		    border-radius: 50%; 
+		}
+		  	75% {
+		    transform: translate(0%, 150%) scale(0.5); 
+		    border-radius: 0%;
+		}
+	}
+
+	@keyframes run_2 {
+		  	0% {
+		    transform: translate(0%);
+		    border-radius: 50%;
+		}
+		  	25% {
+		    transform: translate(-600%) scale(0.5); 
+		    border-radius: 0%;
+		  	}
+		 	50% {
+		    transform: translate(-600%, -150%);
+		    border-radius: 50%; 
+		 }
+		  	75% {
+		    transform: translate(0%, -150%) scale(0.5); 
+		    border-radius: 0%;
+		}
+	}
+
+	.error {
+		font-size: 75px;
+		font-family: 'Monoton', cursive;
+		text-align: center;
+		text-transform: uppercase;
+		text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
+		color: red;
+		position: fixed;
+		animation: lower 10s linear infinite;
+	}
+
+	@keyframes lower {
+		  	0%,12%,18.999%,23%,31.999%,37%,44.999%,46%,49.999%,51%,58.999%,61%,68.999%,71%,85.999%,96%,100% {
+		    opacity:0.99; text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
+		  	}
+		  	19%,22.99%,32%,36.999%,45%,45.999%,50%,50.99%,59%,60.999%,69%,70.999%,86%,95.999% { 
+		    opacity:0.4; text-shadow: none; 
+		}
+	}
+
+</style>
+</head>
+
+<body>
+	<div class="black_box">
+		<div class="left">
+			<ul>
+			    <li class="first"></li>
+			  	<li class="second"></li>
+			  	<li class="third"></li>
+			  	<li class="fourth"></li>
+			  	<li class="fifth"></li>
+			  	<li class="sixth"></li>
+			  	<li class="seventh"></li>
+		  	</ul>
+	  	</div>
+
+	  	<div class="right">
+		  	<ul>
+			    <li class="first"></li>
+			  	<li class="second"></li>
+			  	<li class="third"></li>
+			  	<li class="fourth"></li>
+			  	<li class="fifth"></li>
+			  	<li class="sixth"></li>
+			  	<li class="seventh"></li>
+		  	</ul>
+	  	</div>
+  	</div>
+
+  	<div class="error">
+	  <p>Error</p>
+	  <p>404</p>
+	</div>
+
+</div>
+</body>
+</html>
